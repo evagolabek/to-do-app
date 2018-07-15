@@ -38,17 +38,13 @@ class App extends Component {
     };
   }
 
+//jsx you can access state properties and then by wrapping them in {},
+//so include them in your template code directly and when it gets rendered
+//those expressions are evaluated and put in the resulting HTMLcode
+
   render() {
     return (
-      <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <h1 className="App-title">Welcome to React</h1>
-        </header>
-        <p className="App-intro">
-          To get started, edit <code>src/App.js</code> and save to reload.
-        </p>
-      </div>
+
     );
   }
 }
