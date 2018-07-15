@@ -27,6 +27,9 @@ var todos = [
 
 class App extends Component {
 
+//making the sample data(todos array) available in the internal component state by initializing the state in the constructor
+//props paramenter is passed to the parent constructor (super) next you access state object
+
   constructor(props) {
     super(props);
 
