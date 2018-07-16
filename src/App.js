@@ -38,6 +38,16 @@ class App extends Component {
     };
   }
 
+//passing new value to the state
+  handleRemoveTodo(index) {
+    this.setState({
+      todos: this.state.todos.filter(function(e, i) {
+        return i  !== index;
+      })
+
+    })
+  }
+
 //jsx you can access state properties and then by wrapping them in {},
 //so include them in your template code directly and when it gets rendered
 //those expressions are evaluated and put in the resulting HTMLcode
@@ -52,7 +62,7 @@ class App extends Component {
         <h4 className="list-group-item-heading">{todo.todoTitle}<small><span className="label label-info">{todo.todoPriority}</span></small></h4>
         <p><span className="glyphicon glyphicon-user"></span> {todo.todoResponsible}</p>
         <p>{todo.todoDescription}</p>
-        <button className="btn btn-danger btn-sm"><span className="glyphicon glyphicon-trash"></span>Delete</button>
+        <button className="btn btn-danger btn-sm" onClick={this.handleRemoveTodo.bind(this, index)}><span className="glyphicon glyphicon-trash"></span>Delete</button>
       </li>
     )}
   </ul>
