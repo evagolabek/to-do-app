@@ -52,7 +52,7 @@ class App extends Component {
         <h4 className="list-group-item-heading">{todo.todoTitle}<small><span className="label label-info">{todo.todoPriority}</span></small></h4>
         <p><span className="glyphicon glyphicon-user"></span> {todo.todoResponsible}</p>
         <p>{todo.todoDescription}</p>
-        <button className="btn btn-danger btn-sm"></button>
+        <button className="btn btn-danger btn-sm"><span className="glyphicon glyphicon-trash"></span>Delete</button>
       </li>
     )}
   </ul>
