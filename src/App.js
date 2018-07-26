@@ -36,6 +36,8 @@ class App extends Component {
     this.state = {
       todos
     };
+
+    this.handleAddTodo = this.handleAddTodo.bind(this);
   }
 
 //passing new value to the state
@@ -46,6 +48,10 @@ class App extends Component {
       })
 
     })
+  }
+
+  handleAddTodo(todo) {
+    this.setState({todos: [...this.state.todos, todo]})
   }
 
 //jsx you can access state properties and then by wrapping them in {},
@@ -83,7 +89,34 @@ class TodoInput extends Component {
       todoDescription: '',
       todoPriority: 'Lowest'
     }
+
+    this.handleInputChange = this.handleInputChange.bind(this);
+    this.handleSubmit = this.handleSubmit.bind(this);
 }
+
+
+handleInputChange(event){
+  const target = event.target;
+  const value = target.value;
+  const name = target.name;
+
+  this.setState({
+    [name]: value
+  })
+}
+
+handleSubmit(event) {
+  event.preventDefault();
+  this.props.onAddTodo(this.state);
+  this.setState({
+    todoTitle: '',
+    todoResponsible: '',
+    todoDescription: '',
+    todoPriority: 'Lowest'
+  });
+
+  }
+
     render() {
       return (
         <div>
