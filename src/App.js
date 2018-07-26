@@ -54,19 +54,21 @@ class App extends Component {
 
   render() {
     return (
-<div className="container">
-  <h4>Todo Count: <span className="badge">{this.state.todos.length}</span></h4>
-  <ul className="list-group">
-    {this.state.todos.map((todo, index) =>
-      <li className="list-group-item" key={index}>
-        <h4 className="list-group-item-heading">{todo.todoTitle}<small><span className="label label-info">{todo.todoPriority}</span></small></h4>
-        <p><span className="glyphicon glyphicon-user"></span> {todo.todoResponsible}</p>
-        <p>{todo.todoDescription}</p>
-        <button className="btn btn-danger btn-sm" onClick={this.handleRemoveTodo.bind(this, index)}><span className="glyphicon glyphicon-trash"></span>Delete</button>
-      </li>
-    )}
-  </ul>
-</div>
+      <div className="container">
+      <TodoInput></TodoInput>
+      <hr/>
+        <h4>Todo Count: <span className="badge">{this.state.todos.length}</span></h4>
+        <ul className="list-group">
+          {this.state.todos.map((todo, index) =>
+            <li className="list-group-item" key={index}>
+              <h4 className="list-group-item-heading">{todo.todoTitle}<small><span className="label label-info">{todo.todoPriority}</span></small></h4>
+              <p><span className="glyphicon glyphicon-user"></span> {todo.todoResponsible}</p>
+              <p>{todo.todoDescription}</p>
+              <button className="btn btn-danger btn-sm" onClick={this.handleRemoveTodo.bind(this, index)}><span className="glyphicon glyphicon-trash"></span>Delete</button>
+            </li>
+          )}
+        </ul>
+      </div>
     );
   }
 }
@@ -81,30 +83,42 @@ class TodoInput extends Component {
       todoDescription: '',
       todoPriority: 'Lowest'
     }
-  }
-
+}
     render() {
       return (
         <div>
          <h4>Add New Todo</h4>
-         <form className="form-horizontal" onSubmit={this.handleSubmit}
-         <div className="form-group">
-           <label htmlFor="inputTodoTitle" className="col-sm-2 control-label"></label>
-           <div className="col-sm-10">
-           <input name="todoTitle"
+         <form className="form-horizontal" onSubmit={this.handleSubmit}>
+          <div className="form-group">
+            <label htmlFor="inputTodoTitle" className="col-sm-2 control-label"></label>
+            <div className="col-sm-10">
+              <input name="todoTitle"
                   type="text"
                   className="form-control"
                   id="inputTodoTitle"
                   value={this.state.todoTitle}
                   onChange={this.handleInputChange}
-                  placeholde="Title"></input>
-           </div>
+                  placeholder="Title"></input>
+            </div>
+            </div>
+            <div className="form-group">
+              <label htmlFor="inputTodoResponsible" className="col-sm-2 control-label"></label>
+              <div className="col-sm-10">
+                <input name="todoResponsible"
+                       type="text"
+                       className="form-control"
+                       id="inputTodoTitle"
+                       value={this.state.todoResponsible}
+                       onChange={this.handleInputChange}
+                       placeholder="Responsible"></input>
+              </div>
+          </div>
          </form>
         </div>
       );
     }
-
   }
+
 
 
 export default App;
