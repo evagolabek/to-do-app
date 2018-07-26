@@ -88,32 +88,65 @@ class TodoInput extends Component {
       return (
         <div>
          <h4>Add New Todo</h4>
-         <form className="form-horizontal" onSubmit={this.handleSubmit}>
-          <div className="form-group">
-            <label htmlFor="inputTodoTitle" className="col-sm-2 control-label"></label>
-            <div className="col-sm-10">
-              <input name="todoTitle"
-                  type="text"
-                  className="form-control"
-                  id="inputTodoTitle"
-                  value={this.state.todoTitle}
-                  onChange={this.handleInputChange}
-                  placeholder="Title"></input>
-            </div>
-            </div>
+           <form className="form-horizontal" onSubmit={this.handleSubmit}>
             <div className="form-group">
-              <label htmlFor="inputTodoResponsible" className="col-sm-2 control-label"></label>
+              <label htmlFor="inputTodoTitle" className="col-sm-2 control-label"></label>
               <div className="col-sm-10">
-                <input name="todoResponsible"
+                <input name="todoTitle"
+                    type="text"
+                    className="form-control"
+                    id="inputTodoTitle"
+                    value={this.state.todoTitle}
+                    onChange={this.handleInputChange}
+                    placeholder="Title"></input>
+              </div>
+              </div>
+              <div className="form-group">
+                <label htmlFor="inputTodoResponsible" className="col-sm-2 control-label"></label>
+                <div className="col-sm-10">
+                  <input name="todoResponsible"
+                         type="text"
+                         className="form-control"
+                         id="inputTodoTitle"
+                         value={this.state.todoResponsible}
+                         onChange={this.handleInputChange}
+                         placeholder="Responsible"></input>
+              </div>
+              </div>
+              <div className="form-group">
+                <label htmlFor="inputTodoDesc" className="col-sm-2 control-label"></label>
+                <div className="col-sm-10">
+                  <textarea name="todoDescription"
+                         type="text"
+                         className="form-control"
+                         id="inputTodoDesc"
+                         value={this.state.todoDescription}
+                         onChange={this.handleInputChange}></textarea>
+              </div>
+              </div>
+              <div className="form-group">
+              <label htmlFor="inputTodoPriority" className="col-sm-2 control-label"></label>
+              <div className="col-sm-10">
+                <select name="todoPriority"
                        type="text"
                        className="form-control"
                        id="inputTodoTitle"
-                       value={this.state.todoResponsible}
-                       onChange={this.handleInputChange}
-                       placeholder="Responsible"></input>
+                       value={this.state.todoPriority}
+                       onChange={this.handleInputChange}>
+                  <option>Lowest</option>
+                  <option>Low</option>
+                  <option>Medium</option>
+                  <option>High</option>
+                  <option>Highest</option>
+                </select>
               </div>
-          </div>
-         </form>
+              </div>
+              <div className="form-group">
+               <div className="col-sm-offset-2 col-sm-10">
+                <button type="submit" className="btn btn-success">Add Todo</button>
+               </div>
+               </div>
+           </form>
         </div>
       );
     }
